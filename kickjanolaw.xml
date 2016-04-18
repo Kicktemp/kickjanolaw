@@ -2,7 +2,7 @@
 <extension version="3.4" type="plugin" group="system" method="upgrade">
 	<name>PLG_SYSTEM_KICKJANOLAW</name>
 	<description>PLG_KICKJANOLAW_XML_DESCRIPTION</description>
-	<version>1.0.1</version>
+	<version>1.0.2</version>
 	<creationDate>Januar 2016</creationDate>
 	<author>KickTemp</author>
 	<authorEmail>info@kicktemp.com</authorEmail>
