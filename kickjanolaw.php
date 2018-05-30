@@ -230,28 +230,28 @@ class PlgSystemKickjanolaw extends JPlugin
 		$user_id = $app->input->get('postuserid');
 		$shop_id = $app->input->get('postshopid');
 
-		$request_url = $this->janolaw_url . $user_id . '/' . $shop_id . '/de/model-withdrawal-form_include.html';
+		$request_url = $this->janolaw_url . $user_id . '/' . $shop_id . '/de/legaldetails.pdf';
 
 		$content = $this->getContentfromUrl($request_url);
 
-		if (!$content)
+		if ($content)
 		{
-			$request_url = $this->janolaw_url . $user_id . '/' . $shop_id . '/de/legaldetails.html';
+			$request_url = $this->janolaw_url . $user_id . '/' . $shop_id . '/gb/legaldetails.pdf';
 
 			$content = $this->getContentfromUrl($request_url);
 
-			if (!$content)
+			if ($content)
 			{
-				echo '<br><div class="alert alert-danger">' . JText::_('PLG_KICKJANOLAW_VERSION_1') . '</div>';
+				echo '<br><div class="alert alert-success">' . JText::_('PLG_KICKJANOLAW_MULTILANGUAGE') . '</div>';
 			}
 			else
 			{
-				echo '<br><div class="alert alert-danger">' . JText::_('PLG_KICKJANOLAW_VERSION_2');
+				echo '<br><div class="alert alert-info">' . JText::_('PLG_KICKJANOLAW_NO_MULTILANGUAGE');
 			}
 		}
 		else
 		{
-			echo '<br><div class="alert alert-success">' . JText::_('PLG_KICKJANOLAW_VERSION_3') . '</div>';
+			echo '<br><div class="alert alert-danger">' . JText::_('PLG_KICKJANOLAW_VERSION_NO_3') . '</div>';
 		}
 
 		$app->close();
