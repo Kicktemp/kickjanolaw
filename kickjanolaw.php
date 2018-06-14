@@ -60,12 +60,10 @@ class PlgSystemKickjanolaw extends JPlugin
 	{
 		parent::__construct($subject, $config);
 
-		$this->lang = JFactory::getLanguage();
-
 		$this->langArray = array(
-			"de-DE" => "de",
-			"en-GB" => "gb",
-			"fr-FR" => "fr"
+			"de" => "de",
+			"en" => "gb",
+			"fr" => "fr"
 		);
 
 		$this->user_id = $this->params->get('user-id');
@@ -96,9 +94,12 @@ class PlgSystemKickjanolaw extends JPlugin
 			return true;
 		}
 
+		$this->lang = JFactory::getLanguage();
+
 		// Expression to search for (janolaw)
 		$regex = '/{janolaw\s(.*?)}/i';
-		$lang  = $this->lang->getTag();
+		$lang  = substr($this->lang->getTag(), 0, 2);
+		$alang = substr($article->language, 0, 2);
 
 		// Find all instances of plugin and put in $matches for janolaw
 		// $matches[0] is full pattern match, $matches[1] is the type
@@ -111,9 +112,16 @@ class PlgSystemKickjanolaw extends JPlugin
 			{
 				$matcheslist = explode(' ', $match[1]);
 
-				if (!array_key_exists(1, $matcheslist) && array_key_exists($lang, $this->langArray))
+				if (!array_key_exists(1, $matcheslist) && array_key_exists($alang, $this->langArray))
+				{
+					$matcheslist[1] = $this->langArray[$alang];
+				}
+				elseif (!array_key_exists(1, $matcheslist) && array_key_exists($lang, $this->langArray))
 				{
 					$matcheslist[1] = $this->langArray[$lang];
+				}
+				else {
+					$matcheslist[1] = 'de';
 				}
 
 				$type     = trim($matcheslist[0]);
