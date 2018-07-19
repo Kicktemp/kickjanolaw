@@ -1,17 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
 <updates>
-    <update>
-        <name>KickJanolaw</name>
-        <element>kickjanolaw</element>
-        <type>plugin</type>
-        <folder>system</folder>
-        <client>0</client>
-        <version>1.1.1</version>
-        <downloads>
-            <downloadurl type="upgrade" format="zip">https://github.com/KickTemp/kickjanolaw/archive/1.1.1.zip</downloadurl>
-        </downloads>
-        <tags>
-            <tag>stable</tag>
-        </tags>
-        <targetplatform name="joomla" version="3.*"/>
-    </update>
+	<update>
+		<version>1.1.2</version>
+		<name>KickJanolaw</name>
+		<description>KickJanolaw Plugin</description>
+		<element>kickjanolaw</element>
+		<type>plugin</type>
+		<folder>system</folder>
+		<client>0</client>
+		<infourl title="KickJanolaw Plugin">https://github.com/KickTemp/kickjanolaw/</infourl>
+
+		<downloads>
+			<downloadurl type="upgrade" format="zip">https://github.com/KickTemp/kickjanolaw/archive/1.1.2.zip
+			</downloadurl>
+		</downloads>
+
+		<tags>
+			<tag>stable</tag>
+		</tags>
+
+		<section>updates</section>
+		<maintainer>Niels Nübel</maintainer>
+		<maintainerurl>https://www.kicktemp.com</maintainerurl>
+
+		<php_minimum>5.6.0</php_minimum>
+		<targetplatform name="joomla" version="3.*"/>
+	</update>
+	<update>
+		<name>KickJanolaw</name>
+		<element>kickjanolaw</element>
+		<type>plugin</type>
+		<folder>system</folder>
+		<client>0</client>
+		<version>1.1.1</version>
+		<downloads>
+			<downloadurl type="upgrade" format="zip">https://github.com/KickTemp/kickjanolaw/archive/1.1.2.zip
+			</downloadurl>
+		</downloads>
+		<tags>
+			<tag>stable</tag>
+		</tags>
+		<targetplatform name="joomla" version="3.*"/>
+	</update>
 </updates>

@@ -63,6 +63,7 @@ class PlgSystemKickjanolaw extends JPlugin
 		$this->langArray = array(
 			"de" => "de",
 			"en" => "gb",
+			"gb" => "gb",
 			"fr" => "fr"
 		);
 
@@ -112,16 +113,20 @@ class PlgSystemKickjanolaw extends JPlugin
 			{
 				$matcheslist = explode(' ', $match[1]);
 
-				if (!array_key_exists(1, $matcheslist) && array_key_exists($alang, $this->langArray))
+				if ((array_key_exists(1, $matcheslist) && !array_key_exists($matcheslist[1], $this->langArray)) || !array_key_exists(1, $matcheslist))
 				{
-					$matcheslist[1] = $this->langArray[$alang];
-				}
-				elseif (!array_key_exists(1, $matcheslist) && array_key_exists($lang, $this->langArray))
-				{
-					$matcheslist[1] = $this->langArray[$lang];
-				}
-				else {
-					$matcheslist[1] = 'de';
+					if (array_key_exists($alang, $this->langArray))
+					{
+						$matcheslist[1] = $this->langArray[$alang];
+					}
+					elseif (array_key_exists($lang, $this->langArray))
+					{
+						$matcheslist[1] = $this->langArray[$lang];
+					}
+					else
+					{
+						$matcheslist[1] = 'de';
+					}
 				}
 
 				$type     = trim($matcheslist[0]);
@@ -284,7 +289,7 @@ class PlgSystemKickjanolaw extends JPlugin
 			curl_setopt($ch, CURLOPT_URL, $url);
 			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
 
-			$data = curl_exec($ch);
+			$data     = curl_exec($ch);
 			$httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 			curl_close($ch);
 
