@@ -2,6 +2,14 @@
 	<changelog>
 		<element>kickjanolaw</element>
 		<type>plugin</type>
+		<version>2.0.1</version>
+		<fix>
+			<item>revoke update url</item>
+		</fix>
+	</changelog>
+	<changelog>
+		<element>kickjanolaw</element>
+		<type>plugin</type>
 		<version>2.0.0</version>
 		<security>
 			<item><![CDATA[<p>No security issues.</p>]]></item>

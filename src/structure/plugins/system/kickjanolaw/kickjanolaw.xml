@@ -8,7 +8,7 @@
 	<copyright>[COPYRIGHT]</copyright>
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
 	<version>[VERSION]</version>
-	<changelogurl>https://raw.githubusercontent.com/KickTemp/kickjanolaw/main/changelog.xml</changelogurl>
+	<changelogurl>https://raw.githubusercontent.com/KickTemp/kickjanolaw/master/changelog.xml</changelogurl>
 	<description>PLG_SYSTEM_KICKJANOLAW_XML_DESCRIPTION</description>
 	<namespace path="src">Kicktemp\Plugin\System\Janolaw</namespace>
 	<scriptfile>script.php</scriptfile>
@@ -57,7 +57,7 @@
 	</config>
 	<updateservers>
 		<server type="extension" priority="1" name="[PROJECT_NAME]">
-			https://raw.githubusercontent.com/Kicktemp/kickjanolaw/main/update.xml
+			https://raw.githubusercontent.com/Kicktemp/kickjanolaw/master/update.xml
 		</server>
 	</updateservers>
 </extension>
