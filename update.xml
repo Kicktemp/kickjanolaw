@@ -28,33 +28,6 @@
 		<targetplatform name="joomla" version="4.[01]"/>
 	</update>
 	<update>
-		<name>System - KickJanolaw</name>
-		<description>KickJanolaw Plugin</description>
-		<element>kickjanolaw</element>
-		<type>plugin</type>
-		<folder>system</folder>
-		<client>site</client>
-		<section>updates</section>
-		<version>2.0.0</version>
-		<changelogurl>https://raw.githubusercontent.com/Kicktemp/kickjanolaw/master/changelog.xml</changelogurl>
-		<infourl title="KickJanolaw Plugin">https://github.com/Kicktemp/kickjanolaw/</infourl>
-		<downloads>
-			<downloadurl type="full" format="zip">
-				<![CDATA[https://github.com/Kicktemp/kickjanolaw/releases/download/v2.0.0/plg_system_kickjanolaw_2.0.0.zip]]></downloadurl>
-		</downloads>
-		<sha256>a18cd4f356673acb791b2089aa7a09aab2a0f4010b1e60ec859fb92ae359c8ca</sha256>
-		<sha384>2b03af8e9e225a840860480e0e2636ff0e716b82fca129edb87d144287785c6112df24a3938a45e3d4c1da9e7e219564</sha384>
-		<sha512>270ebcf03635364cef5cb406345fd8006ecfed9f6b8a1013d0b025795f86e959c351e4d0a085091fa245fd298fe21081d8879a563ee32a8df37c15f639f5d623</sha512>
-		<tags>
-			<tag>stable</tag>
-		</tags>
-		<maintainer>Kicktemp GmbH</maintainer>
-		<maintainerurl>https://kicktemp.com</maintainerurl>
-		<php_minimum>7.2.5</php_minimum>
-		<supported_databases mysql="5.6" mariadb="10.1"/>
-		<targetplatform name="joomla" version="4.[01]"/>
-	</update>
-	<update>
 		<version>1.1.2</version>
 		<name>KickJanolaw</name>
 		<description>KickJanolaw Plugin</description>
