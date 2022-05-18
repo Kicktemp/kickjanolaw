@@ -53,6 +53,13 @@ export const config = {
       archives: 'archives/',
       packages: 'package/'
     },
+    updateXML: {
+      src: 'update.xml',
+      rename: 'oldupdate.xml',
+      template: 'updatetemplate.xml',
+      dest: './'
+    },
+
   },
   packagefiles: [
     {

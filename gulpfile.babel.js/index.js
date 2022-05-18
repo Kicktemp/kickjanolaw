@@ -6,7 +6,9 @@
 
 // Dependencies
 import gulp from 'gulp';
+import { series, parallel } from 'gulp';
 
+// Tasks
 import { boilerplate } from './tasks/boilerplate';
 import { watch } from './tasks/watch';
 import { build } from './tasks/build';
@@ -16,7 +18,12 @@ import { cleaner } from './tasks/clean';
 import { copyPackageFiles } from './tasks/copy-packagefiles';
 import { buildArchives } from './tasks/archives';
 import { release } from './tasks/release';
+import { updateXML } from './tasks/updatexml';
 
+// Config
+import {config} from './config';
+
+exports.updateXML = updateXML;
 exports.boilerplate = boilerplate;
 exports.watch = watch;
 exports.build = build;

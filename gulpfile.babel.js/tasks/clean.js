@@ -14,26 +14,26 @@ import { config } from '../config';
 
 // Task
 export function deleteReleasefilesFolder() {
-  return src(config.paths.cleaner.releasefiles, {allowEmpty: true})
+  return src(config.paths.cleaner.releasefiles, {allowEmpty: true, read: false})
     .pipe(plumber({errorHandler}))
     .pipe(clean({force: true}))
 }
 
 
 export function deleteSourcefilesFolder() {
-  return src(config.paths.cleaner.sourcefiles, {allowEmpty: true})
+  return src(config.paths.cleaner.sourcefiles, {allowEmpty: true, read: false})
     .pipe(plumber({errorHandler}))
     .pipe(clean({force: true}))
 }
 
 export function deleteArchivesFolder() {
-  return src(config.paths.cleaner.archives, {allowEmpty: true})
+  return src(config.paths.cleaner.archives, {allowEmpty: true, read: false})
     .pipe(plumber({errorHandler}))
     .pipe(clean({force: true}))
 }
 
 export function deletePackageFolder() {
-  return src(config.paths.cleaner.packages, {allowEmpty: true})
+  return src(config.paths.cleaner.packages, {allowEmpty: true, read: false})
     .pipe(plumber({errorHandler}))
     .pipe(clean({force: true}))
 }
