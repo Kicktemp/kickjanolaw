@@ -16,11 +16,8 @@
 				<![CDATA[https://github.com/Kicktemp/kickjanolaw/releases/download/v2.0.1/plg_system_kickjanolaw_2.0.1.zip]]></downloadurl>
 		</downloads>
 		<sha256>2bb0ef826b3400c7ed37f48992d694afe056d6d4f0878665393b65cd24717dac</sha256>
-		<sha384>2259cfc4b0cb086a50f52c9408f33aa80721e5b28f61b5207b78a2aced062fef596e690b3098fda0e1c96960644e10c3
-		</sha384>
-		<sha512>
-			fe46fe07ab2e9c137f3ad4dbb62c80e6479ec103768ae98b12ee1ea9056a7f906510af7e6109713d1591b02ae7970f2bd2079c1eb722e0740b6c5ba726bf6e7e
-		</sha512>
+		<sha384>2259cfc4b0cb086a50f52c9408f33aa80721e5b28f61b5207b78a2aced062fef596e690b3098fda0e1c96960644e10c3</sha384>
+		<sha512>fe46fe07ab2e9c137f3ad4dbb62c80e6479ec103768ae98b12ee1ea9056a7f906510af7e6109713d1591b02ae7970f2bd2079c1eb722e0740b6c5ba726bf6e7e</sha512>
 		<tags>
 			<tag>stable</tag>
 		</tags>
@@ -46,11 +43,8 @@
 				<![CDATA[https://github.com/Kicktemp/kickjanolaw/releases/download/v2.0.0/plg_system_kickjanolaw_2.0.0.zip]]></downloadurl>
 		</downloads>
 		<sha256>a18cd4f356673acb791b2089aa7a09aab2a0f4010b1e60ec859fb92ae359c8ca</sha256>
-		<sha384>2b03af8e9e225a840860480e0e2636ff0e716b82fca129edb87d144287785c6112df24a3938a45e3d4c1da9e7e219564
-		</sha384>
-		<sha512>
-			270ebcf03635364cef5cb406345fd8006ecfed9f6b8a1013d0b025795f86e959c351e4d0a085091fa245fd298fe21081d8879a563ee32a8df37c15f639f5d623
-		</sha512>
+		<sha384>2b03af8e9e225a840860480e0e2636ff0e716b82fca129edb87d144287785c6112df24a3938a45e3d4c1da9e7e219564</sha384>
+		<sha512>270ebcf03635364cef5cb406345fd8006ecfed9f6b8a1013d0b025795f86e959c351e4d0a085091fa245fd298fe21081d8879a563ee32a8df37c15f639f5d623</sha512>
 		<tags>
 			<tag>stable</tag>
 		</tags>
