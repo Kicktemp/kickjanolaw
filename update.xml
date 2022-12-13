@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <updates>
 	<update>
+		  <name>System - KickJanolaw</name>
+		  <description>KickJanolaw Plugin</description>
+		  <element>kickjanolaw</element>
+		  <type>plugin</type>
+		  <folder>system</folder>
+		  <client>site</client>
+		  <section>updates</section>
+		  <version>2.0.2</version>
+		  <changelogurl>https://raw.githubusercontent.com/Kicktemp/kickjanolaw/master/changelog.xml</changelogurl>
+		  <infourl title="KickJanolaw Plugin">https://github.com/Kicktemp/kickjanolaw/</infourl>
+		  <downloads>
+			<downloadurl type="full" format="zip"><![CDATA[https://github.com/Kicktemp/kickjanolaw/releases/download/v2.0.2/plg_system_kickjanolaw_2.0.2.zip]]></downloadurl>
+		  </downloads>
+		  <sha256>871c3db76d46ecd122c6a149981a1bf2f5d644407a828064b3c1efcceb3874a2</sha256>
+		  <sha384>52a87a4fdfb5920bf94c73083072305f09a491e0c8c835adb9739e041ae5196c89d35bd522e912b20af040aa32f40378</sha384>
+		  <sha512>6880a1dd650614eceaca4035d06f207d8341e99144117bf8c752087268d56f5a3af0edbb59c743a1818a5f969ce0fdb69d6377a7e4a42b5f1afc41ca1a1e7ce3</sha512>
+		  <tags>
+			<tag>stable</tag>
+		  </tags>
+		  <maintainer>Kicktemp GmbH</maintainer>
+		  <maintainerurl>https://kicktemp.com</maintainerurl>
+		  <php_minimum>7.2.5</php_minimum>
+		  <targetplatform name="joomla" version="4.[012]"/>
+	</update>
+	<update>
 		<name>System - KickJanolaw</name>
 		<description>KickJanolaw Plugin</description>
 		<element>kickjanolaw</element>
