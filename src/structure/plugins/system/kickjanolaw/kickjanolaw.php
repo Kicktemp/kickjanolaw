@@ -15,6 +15,7 @@ use Joomla\CMS\Plugin\CMSPlugin;
 use Joomla\CMS\Factory;
 use Joomla\CMS\Filesystem\File;
 use Joomla\CMS\Language\Text;
+use Joomla\CMS\Form\FormHelper;
 
 /**
  * A plugin to add additional image fields to an Joomla article
@@ -74,6 +75,11 @@ class PlgSystemKickjanolaw extends CMSPlugin
 
 		$this->user_id = $this->params->get('user-id');
 		$this->shop_id = $this->params->get('shop-id');
+
+		if (version_compare(JVERSION, '4', 'lt'))
+		{
+			FormHelper::addFieldPath(__DIR__ . '/fields');
+		}
 	}
 
 	/**
