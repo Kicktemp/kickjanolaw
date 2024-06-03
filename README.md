@@ -21,7 +21,7 @@
 - Stefan Wendhausen @inwend
 
 ### Copyright
-2021 Kicktemp GmbH
+2024 Kicktemp GmbH
 
 ### Licence
 GNU GENERAL PUBLIC LICENSE V3. Please see [License File](LICENSE.txt) for more information.
