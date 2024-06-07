@@ -37,7 +37,6 @@
     }
   };
 
-
   const onBoot = () => {
     const versionCheck = document.getElementById('versioncheckajax');
     versionCheck.addEventListener('click', checkVersion);

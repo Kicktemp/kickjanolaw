@@ -4,11 +4,11 @@
 	<creationDate>[DATE]</creationDate>
 	<author>[AUTHOR]</author>
 	<authorEmail>[AUTHOR_EMAIL]</authorEmail>
-	<authorUrl>https://kicktemp.com</authorUrl>
+	<authorUrl>[AUTHOR_URL]</authorUrl>
 	<copyright>[COPYRIGHT]</copyright>
-	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<license>[LICENSE]</license>
 	<version>[VERSION]</version>
-	<changelogurl>https://raw.githubusercontent.com/KickTemp/kickjanolaw/master/changelog.xml</changelogurl>
+	<changelogurl>https://kicktemp.shop/changelog/[ALIAS]</changelogurl>
 	<description>PLG_SYSTEM_KICKJANOLAW_XML_DESCRIPTION</description>
 	<namespace path="src">Kicktemp\Plugin\System\Janolaw</namespace>
 	<scriptfile>script.php</scriptfile>
@@ -58,7 +58,7 @@
 	</config>
 	<updateservers>
 		<server type="extension" priority="1" name="[PROJECT_NAME]">
-			https://raw.githubusercontent.com/Kicktemp/kickjanolaw/master/update.xml
+			https://kicktemp.shop/update/[ALIAS]
 		</server>
 	</updateservers>
 </extension>

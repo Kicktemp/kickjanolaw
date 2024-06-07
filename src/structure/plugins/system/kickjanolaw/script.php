@@ -4,13 +4,14 @@
  *
  * @author     [AUTHOR] <[AUTHOR_EMAIL]>
  * @copyright  [COPYRIGHT]
- * @license    GNU General Public License version 2 or later; see LICENSE.txt
+ * @license    [LICENSE]
  * @link       [AUTHOR_URL]
  */
 
 defined('_JEXEC') or die;
 
 use Joomla\CMS\Factory;
+use Joomla\CMS\Installer\InstallerScript;
 
 /**
  * KickJanolaw script file.
@@ -18,18 +19,49 @@ use Joomla\CMS\Factory;
  * @package   [PACKAGE_NAME]
  * @since     1.0.0
  */
-class plgSystemKickjanolawInstallerScript
+class plgSystemKickjanolawInstallerScript extends InstallerScript
 {
-	public function __construct()
-	{
-		// Define the minimum versions to be supported.
-		$this->minimumJoomla = '4.0';
-		$this->minimumPhp    = '7.2.5';
 
-		$this->dir = __DIR__;
-	}
+    /**
+     * @var string
+     */
+    protected $minimumPhp = '7.2.5';
+    /**
+     * @var string
+     */
+    protected $minimumJoomla = '4.0';
 
-	public function install() {
+    /**
+     * @param $type
+     * @param $parent
+     * @return true|void
+     */
+    public function preflight($type, $parent)
+    {
+        if (!in_array($type, ['install', 'update'])) {
+            return true;
+        }
+    }
+
+    /**
+     * @param $install_type
+     * @param $parent
+     * @return true|void
+     */
+    public function postflight($install_type, $parent)
+    {
+        if (!in_array($install_type, ['install', 'update']))
+        {
+            return true;
+        }
+
+        $this->removeFiles();
+    }
+
+    /**
+     * @return void
+     */
+    public function install() {
 		Factory::getDbo()->setQuery("UPDATE #__extensions SET enabled = 1 WHERE type = 'plugin' AND folder = 'system' AND element = 'kickjanolaw'")->execute();
 	}
 }

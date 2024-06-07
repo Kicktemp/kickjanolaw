@@ -5,8 +5,8 @@
   } // Handle the autocomplete
 
   customRenew = ({
-                    target
-                  }) => {
+                   target
+                 }) => {
     const language = document.getElementById('language');
     const type = document.getElementById('jform_params_shop_id');
     const RenewSuccess = document.getElementById('RenewSuccess');
@@ -37,7 +37,6 @@
       });
     }
   };
-
 
   const onBoot = () => {
     const renewButton = document.getElementById('cleancachefolder');

@@ -4,18 +4,18 @@
  *
  * @author     [AUTHOR] <[AUTHOR_EMAIL]>
  * @copyright  [COPYRIGHT]
- * @license    GNU General Public License version 2 or later; see LICENSE.txt
+ * @license    [LICENSE]
  * @link       [AUTHOR_URL]
  */
 
 // No direct access
 defined('_JEXEC') or die;
 
-use Joomla\CMS\Plugin\CMSPlugin;
 use Joomla\CMS\Factory;
 use Joomla\CMS\Filesystem\File;
-use Joomla\CMS\Language\Text;
 use Joomla\CMS\Form\FormHelper;
+use Joomla\CMS\Language\Text;
+use Joomla\CMS\Plugin\CMSPlugin;
 
 /**
  * A plugin to add additional image fields to an Joomla article
