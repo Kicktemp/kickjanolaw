@@ -2,6 +2,14 @@
   <changelog>
     <element>kickjanolaw</element>
     <type>plugin</type>
+    <version>3.0.1</version>
+    <note>
+      <item>tag name</item>
+    </note>
+  </changelog>
+  <changelog>
+    <element>kickjanolaw</element>
+    <type>plugin</type>
     <version>3.0.0</version>
     <addition>
       <item>add Joomla 5 support</item>

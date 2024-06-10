@@ -1,7 +1,7 @@
 {
   "name": "KickJanolaw",
   "description": "",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "type": "module",
   "scripts": {
     "boilerplate": "cross-env KICK_CONFIG=boilerplate node ./scripts/tasks/copy.js",
