@@ -1,5 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<updates>
+<updates><update>
+  <name>System - KickJanolaw</name>
+  <description>KickJanolaw Plugin</description>
+  <element>kickjanolaw</element>
+  <type>plugin</type>
+  <folder>system</folder>
+  <client>site</client>
+  <section>updates</section>
+  <version>3.0.1</version>
+  <changelogurl>https://kicktemp.shop/changelog/kick-janolaw</changelogurl>
+  <infourl title="KickJanolaw Plugin">https://kicktemp.shop/produkte/kick-janolaw</infourl>
+  <downloads>
+    <downloadurl type="full" format="zip"><![CDATA[https://kicktemp.shop/download/kick-janolaw/v3.0.1]]></downloadurl>
+  </downloads>
+  <sha256>e220a808e91a4240fd33041c6ab88240576f6d3bde9b16bdadc0c27a1e3d2c3e</sha256>
+  <sha384>18db2e4ea440e3c0bd78e7057e4fe84bf75744fdcf5017e07ace92f2f0236d86d150f4334ad8e33d96eb44c287473201</sha384>
+  <sha512>8a0b662498636757f335861063b6b3da5bd48e3b9f775fb999674d55b70eb7621ee3298e1fca8d7ae077c9421fc813c2ea26acb2399ddc7dee2c3e472682c250</sha512>
+  <tags>
+    <tag>stable</tag>
+  </tags>
+  <maintainer>Kicktemp GmbH</maintainer>
+  <maintainerurl>https://kicktemp.com</maintainerurl>
+  <php_minimum>7.2.5</php_minimum>
+  <targetplatform name="joomla" version="((4\.(0|1|2|3|4))|(5\.(0|1|2|3|4)))"/>
+</update>
 	<update>
 		  <name>System - KickJanolaw</name>
 		  <description>KickJanolaw Plugin</description>
