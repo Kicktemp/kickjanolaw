@@ -26,6 +26,8 @@ class plgSystemKickjanolawInstallerScript extends InstallerScript
 
     protected $minimumPhp = '8.1';
     protected $minimumJoomla = '5.0';
+    protected $deleteFiles = ['/plugins/system/kickjanolaw/kickjanolaw.php'];
+    protected $deleteFolders = ['/plugins/system/kickjanolaw/fields'];
 
     /**
      * @param $type
