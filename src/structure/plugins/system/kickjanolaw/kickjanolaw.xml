@@ -13,9 +13,8 @@
 	<namespace path="src">Kicktemp\Plugin\System\Janolaw</namespace>
 	<scriptfile>script.php</scriptfile>
 	<files>
-		<file plugin="kickjanolaw">kickjanolaw.php</file>
-		<folder>fields</folder>
 		<folder>language</folder>
+		<folder plugin="kickjanolaw">services</folder>
 		<folder>src</folder>
 	</files>
 	<media destination="plg_system_kickjanolaw" folder="media">

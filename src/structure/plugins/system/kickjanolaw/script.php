@@ -8,10 +8,12 @@
  * @link       [AUTHOR_URL]
  */
 
-defined('_JEXEC') or die;
-
 use Joomla\CMS\Factory;
 use Joomla\CMS\Installer\InstallerScript;
+
+// phpcs:disable PSR1.Files.SideEffects
+\defined('_JEXEC') or die;
+// phpcs:enable PSR1.Files.SideEffects
 
 /**
  * KickJanolaw script file.
@@ -22,14 +24,8 @@ use Joomla\CMS\Installer\InstallerScript;
 class plgSystemKickjanolawInstallerScript extends InstallerScript
 {
 
-    /**
-     * @var string
-     */
-    protected $minimumPhp = '7.2.5';
-    /**
-     * @var string
-     */
-    protected $minimumJoomla = '4.0';
+    protected $minimumPhp = '8.1';
+    protected $minimumJoomla = '5.0';
 
     /**
      * @param $type

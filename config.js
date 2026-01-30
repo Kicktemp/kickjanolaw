@@ -12,21 +12,7 @@ export const config = {
         src: 'src/structure/',
         glob: 'src/structure/**/**',
         replaceGlob: 'src/structure/**/**.{php,html,xml,php,ini,less,json,js,css}',
-        dest: '../joomla/dist/',
-      },
-      {
-        casesensitive: false,
-        src: 'src/structure/',
-        glob: 'src/structure/**/**',
-        replaceGlob: 'src/structure/**/**.{php,html,xml,php,ini,less,json,js,css}',
-        dest: '../joomla/dist4/',
-      },
-      {
-        casesensitive: false,
-        src: 'src/structure/',
-        glob: 'src/structure/**/**',
-        replaceGlob: 'src/structure/**/**.{php,html,xml,php,ini,less,json,js,css}',
-        dest: '../joomla/dist5/',
+        dest: './dist6/',
       }
     ],
     release: [

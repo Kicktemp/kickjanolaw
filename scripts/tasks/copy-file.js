@@ -3,23 +3,22 @@ import {dirname} from 'path';
 import {stringsreplace} from '../../config.js';
 
 export const copyFile = async (src, dest, manipulateData = false) => {
-  fs.promises.readFile(src, 'utf8')
-    .then((data) => {
-      if (manipulateData) {
-        for (let [key, value] of Object.entries(stringsreplace)) {
-          key = key.replace('[', '\\[');
-          key = key.replace(']', '\\]');
-          var re = new RegExp(key, 'g');
-          data = data.replace(re, value);
-        }
-      }
+  try {
+    const dataRaw = await fs.promises.readFile(src, 'utf8');
+    let data = dataRaw;
 
-      fs.promises.mkdir(dirname(dest), {recursive: true})
-        .then(
-          x => fs.promises.writeFile(dest, data, 'utf8')
-            .catch((err) => {
-              return console.log(err);
-            })
-        )
-    })
+    if (manipulateData) {
+      for (let [key, value] of Object.entries(stringsreplace)) {
+        const safeKey = key.replace('[', '\\[').replace(']', '\\]');
+        const re = new RegExp(safeKey, 'g');
+        data = data.replace(re, value);
+      }
+    }
+
+    await fs.promises.mkdir(dirname(dest), { recursive: true });
+    await fs.promises.writeFile(dest, data, 'utf8');
+  } catch (err) {
+    console.error(`[copy-file] error copying ${src} -> ${dest}: ${err?.message || err}`);
+    throw err;
+  }
 }

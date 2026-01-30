@@ -1,63 +1,95 @@
 import fs from 'fs-extra';
-import libxmljs from 'libxmljs';
-import {config, stringsreplace} from '../../config.js';
-import {getArchiveName, createHashFromFile} from './util.js';
+import { XMLParser, XMLBuilder } from 'fast-xml-parser';
+import { config, stringsreplace } from '../../config.js';
+import { getArchiveName, createHashFromFile } from './util.js';
 
-function extend(target) {
-  var sources = [].slice.call(arguments, 1);
-  sources.forEach(function (source) {
-    for (var prop in source) {
-      target[prop] = source[prop];
-    }
-  });
-  return target;
+function extend(target, ...sources) {
+    sources.forEach(source => {
+        for (let prop in source) {
+            target[prop] = source[prop];
+        }
+    });
+    return target;
 }
-console.log(getArchiveName());
+
+const parser = new XMLParser({ ignoreAttributes: false });
+const builder = new XMLBuilder({
+    ignoreAttributes: false,
+    format: true,
+    indentBy: '  ', // zwei Leerzeichen
+    suppressEmptyNode: false
+});
+
+const log = console.log.bind(console);
+
 export const updateXML = async () => {
-  fs.promises.readFile(config.paths.updateXML.src, 'utf8')
-    .then((data) => {
-      fs.promises.writeFile(config.paths.updateXML.rename, data, 'utf8')
-        .catch((err) => {
-          return console.log(err);
-        })
-      fs.promises.readFile(config.paths.updateXML.template, 'utf8')
-        .then(async (templateData) => {
-          var child = libxmljs.parseXml(templateData);
-          child = child.get('//update');
-          var xml = libxmljs.parseXml(data);
-          var children = xml.get('//updates').childNodes();
-          var updates = new libxmljs.Element(xml, 'updates');
-          updates.addChild(child);
-          children.forEach(function (update){
-            updates.addChild(update);
-          });
-          xml.get('//updates').replace(updates);
+    try {
+        log(`[xml] start: updating ${config.paths.updateXML.src}`);
+        // Ursprüngliches Update-XML lesen
+        const data = await fs.promises.readFile(config.paths.updateXML.src, 'utf8');
+        await fs.promises.writeFile(config.paths.updateXML.rename, data, 'utf8');
+        log(`[xml] backup written: ${config.paths.updateXML.rename}`);
 
-          data = xml.toString();
+        // Template-Update-Node laden
+        const templateData = await fs.promises.readFile(config.paths.updateXML.template, 'utf8');
+        const templateXml = parser.parse(templateData);
+        const updateNode = templateXml.update; // direktes Objekt
 
-          const sha256 = await createHashFromFile(getArchiveName(), 'sha256');
-          const sha384 = await createHashFromFile(getArchiveName(), 'sha384');
-          const sha512 = await createHashFromFile(getArchiveName(), 'sha512');
+        // Ursprüngliches XML parsen
+        const xml = parser.parse(data);
+        const existingUpdates = Array.isArray(xml.updates.update)
+            ? xml.updates.update
+            : xml.updates.update
+                ? [xml.updates.update]
+                : [];
 
-          var shareplace = extend({}, stringsreplace, {"[SHA256]": sha256}, {"[SHA384]": sha384}, {"[SHA512]": sha512});
+        // Neue Version aus Template extrahieren
+        const newVersion = updateNode.version?.toString().trim();
 
-          for (let [key, value] of Object.entries(shareplace)) {
-            key = key.replace('[', '\\[');
-            key = key.replace(']', '\\]');
-            var re = new RegExp(key, 'g');
-            data = data.replace(re, value);
-          }
+        // Prüfen, ob diese Version bereits existiert
+        const versionExists = existingUpdates.some(u => u.version?.toString().trim() === newVersion);
 
-          fs.promises.writeFile(config.paths.updateXML.src ,data, 'utf8')
-            .catch((err) => {
-              return console.log(err);
-            })
-        })
-        .catch((err) => {
-          return console.log(err);
-        })
+        if (versionExists) {
+            log(`[xml] skip: Version ${newVersion} existiert bereits`);
+            return; // abbrechen, nichts schreiben
+        }
 
-    })
+        // Neue Version ganz oben einfügen
+        const allUpdates = [updateNode, ...existingUpdates];
+
+        // Neues Objekt erzeugen
+        const newXml = {
+            ...xml,
+            updates: {
+                update: allUpdates
+            }
+        };
+
+        let updatedXml = builder.build(newXml);
+
+        // Hashes berechnen
+        const archiveName = getArchiveName();
+        log(`[xml] computing hashes for: ${archiveName}`);
+        const sha256 = await createHashFromFile(archiveName, 'sha256');
+        const sha384 = await createHashFromFile(archiveName, 'sha384');
+        const sha512 = await createHashFromFile(archiveName, 'sha512');
+
+        const shareplace = extend({}, stringsreplace, { "[SHA256]": sha256 }, { "[SHA384]": sha384 }, { "[SHA512]": sha512 });
+
+        // Platzhalter ersetzen
+        for (let [key, value] of Object.entries(shareplace)) {
+            const re = new RegExp(key.replace('[', '\\[').replace(']', '\\]'), 'g');
+            updatedXml = updatedXml.replace(re, value);
+        }
+
+        // Neue XML-Datei schreiben
+        await fs.promises.writeFile(config.paths.updateXML.src, updatedXml, 'utf8');
+        log(`[xml] updated: ${config.paths.updateXML.src}`);
+
+    } catch (err) {
+        console.error(`[xml] error: ${err?.message || err}`);
+        process.exitCode = 1;
+    }
 };
 
 updateXML();

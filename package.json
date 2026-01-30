@@ -1,7 +1,7 @@
 {
   "name": "KickJanolaw",
   "description": "",
-  "version": "3.0.1",
+  "version": "4.0.0",
   "type": "module",
   "scripts": {
     "boilerplate": "cross-env KICK_CONFIG=boilerplate node ./scripts/tasks/copy.js",
@@ -17,6 +17,7 @@
     "download:joomla": "sh ./scripts/joomla.sh",
     "download:joomla4": "sh ./scripts/joomla4.sh",
     "download:joomla5": "sh ./scripts/joomla5.sh",
+    "download:joomla6": "sh ./scripts/joomla6.sh",
     "publishtag": "sh ./scripts/post.sh"
   },
   "repository": {
@@ -56,21 +57,22 @@
     "[ALIAS]": "kick-janolaw",
     "[AUTHOR]": "Kicktemp GmbH",
     "[AUTHOR_EMAIL]": "hello@kicktemp.com",
-    "[COPYRIGHT]": "Copyright © 2024 Kicktemp GmbH. All rights reserved.",
+    "[COPYRIGHT]": "Copyright © 2026 Kicktemp GmbH. All rights reserved.",
     "[LICENSE]": "GNU General Public License version 2 or later; see LICENSE.txt",
     "[AUTHOR_URL]": "https://kicktemp.com",
-    "[DATE]": "10.06.2024",
-    "[PLUGINTYPE]": "system"
+    "[DATE]": "30.01.2026",
+    "[PLUGINTYPE]": "system",
+    "[STABILITY]": "beta"
   },
   "engines": {
     "node": ">=16.0.0"
   },
-  "devDependencies": {
+  "dependencies": {
     "archiver": "^7.0.1",
-    "chokidar": "^3.6.0",
-    "cross-env": "^7.0.3",
-    "fs-extra": "^11.2.0",
-    "glob": "^10.4.1",
-    "libxmljs": "1.0.11"
+    "chokidar": "^5.0.0",
+    "cross-env": "^10.1.0",
+    "fast-xml-parser": "^5.3.4",
+    "fs-extra": "^11.3.3",
+    "glob": "^13.0.0"
   }
 }

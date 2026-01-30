@@ -8,7 +8,7 @@
                    target
                  }) => {
     const language = document.getElementById('language');
-    const type = document.getElementById('jform_params_shop_id');
+    const type = document.getElementById('type');
     const RenewSuccess = document.getElementById('RenewSuccess');
     const RenewError = document.getElementById('RenewError');
     const url = target.getAttribute('data-url');
@@ -24,8 +24,24 @@
         method: 'POST',
         perform: true,
         onSuccess: resp => {
-          RenewError.classList.add('hidden');
-          RenewSuccess.classList.remove('hidden');
+          let payload = resp;
+
+          try {
+            if (typeof resp === 'string') {
+              payload = JSON.parse(resp);
+            }
+          } catch (e) {
+            payload = null;
+          }
+
+          if (payload && payload.renew === 'success') {
+            RenewError.classList.add('hidden');
+            RenewSuccess.classList.remove('hidden');
+            return;
+          }
+
+          RenewSuccess.classList.add('hidden');
+          RenewError.classList.remove('hidden');
         },
         onError: xhr => {
           RenewSuccess.classList.add('hidden');

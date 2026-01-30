@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
-INSTALLDIR=$SCRIPTPATH/../../yootheme/dist/
+INSTALLDIR=$SCRIPTPATH/../dist/
 
 if [ ! -d INSTALLDIR ]; then
  mkdir -p ${INSTALLDIR}
